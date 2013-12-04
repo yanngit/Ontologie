@@ -18,15 +18,16 @@
 
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration
 
-<http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> rdf:type owl:InverseFunctionalProperty ,
-                                                                             owl:ObjectProperty ;
-                                                                    
-                                                                    rdfs:range <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> ;
+<http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> rdf:type owl:ObjectProperty ;
                                                                     
                                                                     rdfs:domain <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail> ;
                                                                     
-                                                                    rdfs:range <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit> ,
-                                                                               <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable> .
+                                                                    rdfs:range [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage>
+                                                                                               <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
+                                                                                               <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+                                                                                             )
+                                                                               ] .
 
 
 
@@ -45,12 +46,14 @@
 <http://www.semanticweb.org/bach/ontologies/cocktail#hasIngredient> rdf:type owl:InverseFunctionalProperty ,
                                                                              owl:ObjectProperty ;
                                                                     
-                                                                    rdfs:range <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> ;
-                                                                    
                                                                     rdfs:domain <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail> ;
                                                                     
-                                                                    rdfs:range <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit> ,
-                                                                               <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable> .
+                                                                    rdfs:range [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage>
+                                                                                               <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
+                                                                                               <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+                                                                                             )
+                                                                               ] .
 
 
 
@@ -71,11 +74,14 @@
                                                                      
                                                                      rdfs:range <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail> ;
                                                                      
-                                                                     rdfs:domain <http://www.semanticweb.org/bach/ontologies/cocktail#Decoration> ,
-                                                                                 <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit> ,
-                                                                                 <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable> ;
+                                                                     owl:inverseOf <http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> ;
                                                                      
-                                                                     owl:inverseOf <http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> .
+                                                                     rdfs:domain [ rdf:type owl:Class ;
+                                                                                   owl:unionOf ( <http://www.semanticweb.org/bach/ontologies/cocktail#Decoration>
+                                                                                                 <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
+                                                                                                 <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+                                                                                               )
+                                                                                 ] .
 
 
 
@@ -83,14 +89,16 @@
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#isIngredientOf> rdf:type owl:ObjectProperty ;
                                                                      
-                                                                     rdfs:domain <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> ;
-                                                                     
                                                                      rdfs:range <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail> ;
                                                                      
-                                                                     rdfs:domain <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit> ,
-                                                                                 <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable> ;
+                                                                     owl:inverseOf <http://www.semanticweb.org/bach/ontologies/cocktail#hasIngredient> ;
                                                                      
-                                                                     owl:inverseOf <http://www.semanticweb.org/bach/ontologies/cocktail#hasIngredient> .
+                                                                     rdfs:domain [ rdf:type owl:Class ;
+                                                                                   owl:unionOf ( <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage>
+                                                                                                 <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
+                                                                                                 <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+                                                                                               )
+                                                                                 ] .
 
 
 
@@ -289,9 +297,21 @@
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail> rdf:type owl:Class ;
                                                                
-                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> ;
-                                                                                 owl:someValuesFrom <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+                                                               rdfs:subClassOf [ rdf:type owl:Class ;
+                                                                                 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasIngredient> ;
+                                                                                                        owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                                                             owl:unionOf ( <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
+                                                                                                                                           <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+                                                                                                                                         )
+                                                                                                                           ]
+                                                                                                      ]
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasIngredient> ;
+                                                                                                        owl:onClass <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> ;
+                                                                                                        owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+                                                                                                      ]
+                                                                                                    )
                                                                                ] ,
                                                                                [ rdf:type owl:Restriction ;
                                                                                  owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasGlass> ;
@@ -300,21 +320,17 @@
                                                                                ] ,
                                                                                [ rdf:type owl:Restriction ;
                                                                                  owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> ;
-                                                                                 owl:someValuesFrom <http://www.semanticweb.org/bach/ontologies/cocktail#Decoration>
+                                                                                 owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                                      owl:unionOf ( <http://www.semanticweb.org/bach/ontologies/cocktail#Decoration>
+                                                                                                                    <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
+                                                                                                                    <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+                                                                                                                  )
+                                                                                                    ]
                                                                                ] ,
                                                                                [ rdf:type owl:Restriction ;
                                                                                  owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasName> ;
                                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                                  owl:onDataRange xsd:string
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasIngredient> ;
-                                                                                 owl:onClass <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> ;
-                                                                                 owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> ;
-                                                                                 owl:someValuesFrom <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
                                                                                ] .
 
 
@@ -378,6 +394,11 @@
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#Country
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Country> rdf:type owl:Class ;
+                                                              
+                                                              owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                    owl:oneOf ( <http://www.semanticweb.org/bach/ontologies/cocktail#France>
+                                                                                              )
+                                                                                  ] ;
                                                               
                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasName> ;
