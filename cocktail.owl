@@ -111,6 +111,14 @@
 
 
 
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Alcoholic_Beverages
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Alcoholic_Beverages> rdf:type owl:Class ;
+                                                                          
+                                                                          rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> .
+
+
+
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#Baileys_Irish_Cream
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Baileys_Irish_Cream> rdf:type owl:Class ;
@@ -137,14 +145,14 @@
 <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> rdf:type owl:Class ;
                                                                
                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasName> ;
-                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onDataRange xsd:string
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
                                                                                  owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasAlcoholicDegree> ;
                                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                                  owl:onDataRange xsd:float
+                                                                               ] ,
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasName> ;
+                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                 owl:onDataRange xsd:string
                                                                                ] .
 
 
@@ -229,6 +237,14 @@
 
 
 
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Coca_Cola
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Coca_Cola> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Soda> .
+
+
+
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail> rdf:type owl:Class ;
@@ -239,8 +255,9 @@
                                                                                  owl:onDataRange xsd:string
                                                                                ] ,
                                                                                [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> ;
-                                                                                 owl:someValuesFrom <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasIngredient> ;
+                                                                                 owl:onClass <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> ;
+                                                                                 owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
                                                                                ] ,
                                                                                [ rdf:type owl:Restriction ;
                                                                                  owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasGlass> ;
@@ -249,16 +266,15 @@
                                                                                ] ,
                                                                                [ rdf:type owl:Restriction ;
                                                                                  owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> ;
+                                                                                 owl:someValuesFrom <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+                                                                               ] ,
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> ;
                                                                                  owl:someValuesFrom <http://www.semanticweb.org/bach/ontologies/cocktail#Decoration>
                                                                                ] ,
                                                                                [ rdf:type owl:Restriction ;
                                                                                  owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasDecoration> ;
                                                                                  owl:someValuesFrom <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasIngredient> ;
-                                                                                 owl:onClass <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> ;
-                                                                                 owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
                                                                                ] .
 
 
@@ -482,7 +498,7 @@
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Gin> rdf:type owl:Class ;
                                                           
-                                                          rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> .
+                                                          rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Alcoholic_Beverages> .
 
 
 
@@ -508,6 +524,14 @@
 
 
 
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Grenadine
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Grenadine> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Syrup> .
+
+
+
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#Jack_Daniel's
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Jack_Daniel's> rdf:type owl:Class ;
@@ -526,6 +550,14 @@
                                                                                         ] ;
                                                                     
                                                                     rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Whisky> .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Juice
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Juice> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Softners> .
 
 
 
@@ -567,11 +599,35 @@
 
 
 
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Lemon_Juice
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Lemon_Juice> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Juice> .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Lemonade
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Lemonade> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Soda> .
+
+
+
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#Liqueur
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Liqueur> rdf:type owl:Class ;
                                                               
-                                                              rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> .
+                                                              rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Alcoholic_Beverages> .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Mint
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Mint> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Syrup> .
 
 
 
@@ -606,6 +662,22 @@
                                                                                 ] ;
                                                             
                                                             rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable> .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Orange_Juice
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Orange_Juice> rdf:type owl:Class ;
+                                                                   
+                                                                   rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Juice> .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Pineapple_Juice
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Pineapple_Juice> rdf:type owl:Class ;
+                                                                      
+                                                                      rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Juice> .
 
 
 
@@ -712,6 +784,30 @@
 
 
 
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Soda
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Soda> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Softners> .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Softners
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Softners> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Sprite
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Sprite> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Soda> .
+
+
+
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#Swizzle_stick
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Swizzle_stick> rdf:type owl:Class ;
@@ -729,11 +825,27 @@
 
 
 
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Syrup
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Syrup> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Softners> .
+
+
+
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#Tequila
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Tequila> rdf:type owl:Class ;
                                                               
-                                                              rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> .
+                                                              rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Alcoholic_Beverages> .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Tonic
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Tonic> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Soda> .
 
 
 
@@ -747,7 +859,7 @@
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Vodka> rdf:type owl:Class ;
                                                             
-                                                            rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> .
+                                                            rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Alcoholic_Beverages> .
 
 
 
@@ -771,7 +883,7 @@
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Whisky> rdf:type owl:Class ;
                                                              
-                                                             rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage> .
+                                                             rdfs:subClassOf <http://www.semanticweb.org/bach/ontologies/cocktail#Alcoholic_Beverages> .
 
 
 
@@ -795,23 +907,209 @@
 
 #################################################################
 #
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Absolut
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Absolut> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Absolut> ,
+                                                                       owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Baileys_Irish_Cream
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Baileys_Irish_Cream> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Baileys_Irish_Cream> ,
+                                                                                   owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Black_Label
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Black_Label> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Black_Label> ,
+                                                                           owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Bonita_Platinum
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Bonita_Platinum> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Bonita_Platinum> ,
+                                                                               owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Casa_Dragones
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Casa_Dragones> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Casa_Dragones> ,
+                                                                             owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Cherry
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Cherry> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Cherry> ,
+                                                                      owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail_glass
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail_glass> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail_glass> ,
+                                                                              owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail_umbrella
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail_umbrella> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail_umbrella> ,
+                                                                                 owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Collins_glass
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Collins_glass> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Collins_glass> ,
+                                                                             owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Crème_de_cassis
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Crème_de_cassis> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Crème_de_cassis> ,
+                                                                               owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Cucumber
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Cucumber> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Cucumber> ,
+                                                                        owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Don_Julio
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Don_Julio> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Don_Julio> ,
+                                                                         owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Drinking_straw
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Drinking_straw> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Drinking_straw> ,
+                                                                              owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Fraise
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Fraise> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Fraise> ,
+                                                                      owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#GIBSON'S
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#GIBSON'S> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#GIBSON'S> ,
+                                                                        owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#GORDON'S
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#GORDON'S> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#GORDON'S> ,
+                                                                        owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Jack_Daniel's
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Jack_Daniel's> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Jack_Daniel's> ,
+                                                                             owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Kahlua
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Kahlua> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Kahlua> ,
+                                                                      owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Lemon
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Lemon> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Lemon> ,
+                                                                     owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Old_fashioned_glass
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Old_fashioned_glass> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Old_Fashioned_glass> ,
+                                                                                   owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Olive
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Olive> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Olive> ,
+                                                                     owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#RaspBerry
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#RaspBerry> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#RaspBerry> ,
+                                                                         owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Red_Label
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Red_Label> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Red_Label> ,
+                                                                         owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Sapphire_Bombay
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Sapphire_Bombay> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Sapphire_Bombay> ,
+                                                                               owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Skyy
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Skyy> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Skyy> ,
+                                                                    owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Smirnoff
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Smirnoff> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Smirnoff> ,
+                                                                        owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Swizzle_stick
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Swizzle_stick> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Swizzle_stick> ,
+                                                                             owl:NamedIndividual .
+
+
+
+
+
+#################################################################
+#
 #    General axioms
 #
 #################################################################
 
 
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Bonita_Platinum>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Casa_Dragones>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Don_Julio>
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#GIBSON'S>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#GORDON'S>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Sapphire_Bombay>
-              )
-] .
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage>
                 <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail>
@@ -829,9 +1127,15 @@
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cucumber>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Lemon>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Olive>
+  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#GIBSON'S>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#GORDON'S>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Sapphire_Bombay>
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cherry>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Fraise>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#RaspBerry>
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
@@ -847,9 +1151,15 @@
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cherry>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Fraise>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#RaspBerry>
+  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cucumber>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Lemon>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Olive>
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Bonita_Platinum>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Casa_Dragones>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Don_Julio>
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
