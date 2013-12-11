@@ -400,11 +400,6 @@
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Country> rdf:type owl:Class ;
                                                               
-                                                              owl:equivalentClass [ rdf:type owl:Class ;
-                                                                                    owl:oneOf ( <http://www.semanticweb.org/bach/ontologies/cocktail#France>
-                                                                                              )
-                                                                                  ] ;
-                                                              
                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty <http://www.semanticweb.org/bach/ontologies/cocktail#hasName> ;
                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1002,6 +997,30 @@
 #################################################################
 
 
+###  http://sws.geonames.org/2017370/
+
+<http://sws.geonames.org/2017370/> rdf:type owl:NamedIndividual ;
+                                   
+                                   owl:sameAs <http://www.semanticweb.org/bach/ontologies/cocktail#Russia> .
+
+
+
+###  http://sws.geonames.org/3017382/
+
+<http://sws.geonames.org/3017382/> rdf:type owl:NamedIndividual ;
+                                   
+                                   owl:sameAs <http://www.semanticweb.org/bach/ontologies/cocktail#France> .
+
+
+
+###  http://sws.geonames.org/3469034/
+
+<http://sws.geonames.org/3469034/> rdf:type owl:NamedIndividual ;
+                                   
+                                   owl:sameAs <http://www.semanticweb.org/bach/ontologies/cocktail#Brazil> .
+
+
+
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#Absolut
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Absolut> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Absolut> ,
@@ -1032,6 +1051,8 @@
                                                                     
                                                                     <http://www.semanticweb.org/bach/ontologies/cocktail#hasGlass> <http://www.semanticweb.org/bach/ontologies/cocktail#Old_fashioned_glass> ;
                                                                     
+                                                                    <http://www.semanticweb.org/bach/ontologies/cocktail#hasOrigin> <http://www.semanticweb.org/bach/ontologies/cocktail#Russia> ;
+                                                                    
                                                                     <http://www.semanticweb.org/bach/ontologies/cocktail#hasIngredient> <http://www.semanticweb.org/bach/ontologies/cocktail#Skyy> .
 
 
@@ -1040,6 +1061,14 @@
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Bonita_Platinum> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Bonita_Platinum> ,
                                                                                owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Brazil
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Brazil> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Country> ,
+                                                                      owl:NamedIndividual; 
+                                                                      owl:sameAs <http://sws.geonames.org/3469034/> .
 
 
 
@@ -1130,7 +1159,8 @@
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#France
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#France> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Country> ,
-                                                                      owl:NamedIndividual .
+                                                                      owl:NamedIndividual;
+                                                                      owl:sameAs <http://sws.geonames.org/3017382/> .
 
 
 
@@ -1225,6 +1255,14 @@
 
 
 
+###  http://www.semanticweb.org/bach/ontologies/cocktail#Russia
+
+<http://www.semanticweb.org/bach/ontologies/cocktail#Russia> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Country> ,
+                                                                      owl:NamedIndividual;
+                                                                      owl:sameAs <http://sws.geonames.org/2017370/> .
+
+
+
 ###  http://www.semanticweb.org/bach/ontologies/cocktail#Sapphire_Bombay
 
 <http://www.semanticweb.org/bach/ontologies/cocktail#Sapphire_Bombay> rdf:type <http://www.semanticweb.org/bach/ontologies/cocktail#Sapphire_Bombay> ,
@@ -1299,31 +1337,27 @@
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cucumber>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Lemon>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Olive>
+  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cherry>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Fraise>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#RaspBerry>
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Country>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Decoration>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Glass>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Bonita_Platinum>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Casa_Dragones>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Don_Julio>
+  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail_umbrella>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Drinking_straw>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Swizzle_stick>
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Baileys_Irish_Cream>
                 <http://www.semanticweb.org/bach/ontologies/cocktail#Crème_de_cassis>
                 <http://www.semanticweb.org/bach/ontologies/cocktail#Kahlua>
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cucumber>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Lemon>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Olive>
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
@@ -1339,21 +1373,25 @@
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Beverage>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Country>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Decoration>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Fruit>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Glass>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Vegetable>
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Absolut>
                 <http://www.semanticweb.org/bach/ontologies/cocktail#Skyy>
                 <http://www.semanticweb.org/bach/ontologies/cocktail#Smirnoff>
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cherry>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Fraise>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#RaspBerry>
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Cocktail_umbrella>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Drinking_straw>
-                <http://www.semanticweb.org/bach/ontologies/cocktail#Swizzle_stick>
+  owl:members ( <http://www.semanticweb.org/bach/ontologies/cocktail#Bonita_Platinum>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Casa_Dragones>
+                <http://www.semanticweb.org/bach/ontologies/cocktail#Don_Julio>
               )
 ] .
 
